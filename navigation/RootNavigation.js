@@ -32,23 +32,36 @@ export default class RootNavigation extends React.Component {
     return (
       <TabNavigation
         tabBarHeight={56}
-        initialTab="home">
+        initialTab="pickup">
+
         <TabNavigationItem
-          id="home"
-          renderIcon={isSelected => this._renderIcon('home', isSelected)}>
-          <StackNavigation initialRoute="home" />
+          id="pickup"
+          renderIcon={isSelected => this._renderIcon('cutlery', isSelected)}>
+          <StackNavigation initialRoute="pickup" />
         </TabNavigationItem>
 
         <TabNavigationItem
-          id="links"
-          renderIcon={isSelected => this._renderIcon('book', isSelected)}>
-          <StackNavigation initialRoute="links" />
+          id="post"
+          renderIcon={isSelected => this._renderIcon('pencil', isSelected)}>
+          <StackNavigation initialRoute="post" />
         </TabNavigationItem>
 
         <TabNavigationItem
-          id="settings"
-          renderIcon={isSelected => this._renderIcon('cog', isSelected)}>
-          <StackNavigation initialRoute="settings" />
+          id="track"
+          renderIcon={isSelected => this._renderIcon('map-marker', isSelected)}>
+          <StackNavigation initialRoute="track" />
+        </TabNavigationItem>
+
+        <TabNavigationItem
+          id="chat"
+          renderIcon={isSelected => this._renderIcon('envelope', isSelected)}>
+          <StackNavigation initialRoute="chat" />
+        </TabNavigationItem>
+
+        <TabNavigationItem
+          id="events"
+          renderIcon={isSelected => this._renderIcon('bullseye', isSelected)}>
+          <StackNavigation initialRoute="events" />
         </TabNavigationItem>
       </TabNavigation>
     );
