@@ -17,7 +17,8 @@
     "exponent": "~11.0.2",
     "react": "~15.3.2",
     "react-native": "git+https://github.com/exponentjs/react-native#sdk-11.0.3",
-    "react-native-camera": "^0.4.0"
+    "react-native-camera": "^0.4.0",
+    "react-native-elements": "^0.7.0"
   },
   "devDependencies": {
     "jest-exponent": "~0.1.3"
