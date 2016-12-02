@@ -9,6 +9,7 @@ import {
     Text,
     TouchableOpacity,
     View,
+    TextInput,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
@@ -75,7 +76,9 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     center: {
+        flexDirection: 'column',
         alignItems: 'center',
+        justifyContent:'center',
     },
     add_photo: {
         backgroundColor: '#F9AD5F',
