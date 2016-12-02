@@ -11,8 +11,22 @@ import {
     View,
     TextInput,
 } from 'react-native';
-
+import Router from '../navigation/Router'
+import Button from 'react-native-button';
+var t=require('tcomb-form-native');
 import { MonoText } from '../components/StyledText';
+
+var Form = t.form.Form;
+
+var Person = t.struct({
+    Title: t.String,              // a required string
+    Quantity: t.Number,               // a required number
+    Description: t.maybe(t.String),  // an optional string
+    PickupDetails: t.maybe(t.String),  // an optional string
+    rememberMe: t.Boolean        // a boolean
+});
+
+var options = {};
 
 export default class HomeScreen extends React.Component {
     static route = {
@@ -23,7 +37,20 @@ export default class HomeScreen extends React.Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={styles.container}>
+                <Form
+                    ref="form"
+                    type={Person}
+                    options={options}
+                />
+                <Button
+                        style={{fontSize: 20, color: 'red'}}
+                        styleDisabled={{color: 'red'}}
+                        onPress={() => this._handlePress()}>
+                        Post
+                </Button>
+            </View>
+            /*<View style={{flex: 1}}>
                 <View style={{flex: 1, flexDirection: 'row', backgroundColor: '#FAF3DD'}}>
                     <View style={{flex: 1, backgroundColor: '#FAF3DD'}}>
                         <View style={styles.center}>
@@ -31,15 +58,28 @@ export default class HomeScreen extends React.Component {
                             <Text>Add Photo</Text>
                         </View>
                     </View>
-                    <View style={{flex: 1, backgroundColor: 'steelblue'}}>
-                        <Text>"Details Here!"</Text>
+                    <View style={{flex: 1, backgroundColor: 'steelblue', justifyContent: 'center'}}>
+                        <Text>"Title:"</Text>
                     </View>
                 </View>
-                <View style={{flex: 1, backgroundColor: 'skyblue'}} />
-            </View>
+                <View style={{flex: 1, backgroundColor: 'skyblue'}}>
+                    <Button
+                        style={{fontSize: 20, color: 'red'}}
+                        styleDisabled={{color: 'red'}}
+                        onPress={() => this._handlePress()}>
+                        Post
+                    </Button>
+                </View>
+
+            </View>*/
 
 
         );
+    }
+
+    _handlePress(){
+        console.log("pressed");
+        this.props.navigator.push(Router.getRoute('track'));
     }
 
     _maybeRenderDevelopmentModeWarning() {
@@ -74,7 +114,7 @@ export default class HomeScreen extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
     center: {
         flexDirection: 'column',
         alignItems: 'center',
@@ -176,4 +216,34 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#2e78b7',
     },
+});*/
+
+var styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    marginTop: 50,
+    padding: 20,
+    backgroundColor: '#ffffff',
+  },
+  title: {
+    fontSize: 30,
+    alignSelf: 'center',
+    marginBottom: 30
+  },
+  buttonText: {
+    fontSize: 18,
+    color: 'white',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 36,
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  }
 });
+

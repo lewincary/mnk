@@ -20,7 +20,7 @@ export default class LinksScreen extends React.Component {
         style={styles.container}
         contentContainerStyle={this.props.route.getContentContainerStyle()}>
 
-        { /* Go ahead and delete ExponentLinksView and replace it with your
+        { /* sdfGo ahead and delete ExponentLinksView and replace it with your
            * content, we just wanted to provide you with some helpful links */ }
         <ExponentLinksView />
 
