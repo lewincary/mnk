@@ -38,7 +38,7 @@ import {
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
-
+import { CheckBox } from 'react-native-elements'
 
 @withNavigation
 class ExponentButton extends React.Component {
@@ -138,18 +138,18 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View>
-        <CheckBox
-          title='Milk'
-          checked={this.state.checked}
-        ></CheckBox>
-        <CheckBox
-          title='Click Here'
-          checked={this.state.checked}
-        ></CheckBox>
-        <CheckBox
-          title='Click Here'
-          checked={this.state.checked}
-        ></CheckBox>
+      <CheckBox
+        title='Milk'
+        checked={this.state.checked}
+      ></CheckBox>
+      <CheckBox
+        title='Click Here'
+        checked={this.state.checked}
+      ></CheckBox>
+      <CheckBox
+        title='Click Here'
+        checked={this.state.checked}
+      ></CheckBox>
       </View>
     );
   }
@@ -764,15 +764,6 @@ const BackButton = ({onPress, name, size}) => (
   <TouchableHighlight onPress={onPress}>
     <Icon name={name} size={size || 28} />
   </TouchableHighlight>
-)
-
-import { CheckBox } from 'react-native-elements'
-
-const CheckBox1 = () => (
-  <CheckBox>
-    title='Click Here';
-    checked={this.state.checked};
-  </CheckBox>
 )
 
 const styles = StyleSheet.create({

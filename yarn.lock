@@ -855,7 +855,11 @@ babel-preset-jest@^16.0.0:
 
 babel-preset-react-native-stage-0@^1.0.1:
   version "1.0.1"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/babel-preset-react-native-stage-0/-/babel-preset-react-native-stage-0-1.0.1.tgz#d5f5f685575471ef756a49f191b193269f74306e"
+=======
+  resolved "http://registry.npmjs.org/babel-preset-react-native-stage-0/-/babel-preset-react-native-stage-0-1.0.1.tgz#d5f5f685575471ef756a49f191b193269f74306e"
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
   dependencies:
     babel-plugin-syntax-trailing-function-commas "^6.5.0"
     babel-plugin-transform-class-constructor-call "^6.6.5"
@@ -1963,7 +1967,11 @@ fast-levenshtein@~2.0.4:
 
 fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   version "1.9.0"
+<<<<<<< HEAD
   resolved "http://registry.npmjs.org/fb-watchman/-/fb-watchman-1.9.0.tgz#6f268f1f347a6b3c875d1e89da7e1ed79adfc0ec"
+=======
+  resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-1.9.0.tgz#6f268f1f347a6b3c875d1e89da7e1ed79adfc0ec"
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
   dependencies:
     bser "^1.0.2"
 
@@ -2024,7 +2032,11 @@ filename-reserved-regex@^1.0.0:
 
 filenamify@^1.0.1:
   version "1.2.1"
+<<<<<<< HEAD
   resolved "http://registry.npmjs.org/filenamify/-/filenamify-1.2.1.tgz#a9f2ffd11c503bed300015029272378f1f1365a5"
+=======
+  resolved "https://registry.yarnpkg.com/filenamify/-/filenamify-1.2.1.tgz#a9f2ffd11c503bed300015029272378f1f1365a5"
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
   dependencies:
     filename-reserved-regex "^1.0.0"
     strip-outer "^1.0.0"
@@ -2491,10 +2503,13 @@ image-size@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.3.5.tgz#83240eab2fb5b00b04aab8c74b0471e9cba7ad8c"
 
+<<<<<<< HEAD
 immutable@^3.8.1:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
+=======
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
 immutable@~3.7.6:
   version "3.7.6"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
@@ -2997,6 +3012,7 @@ jest-resolve-dependencies@^16.0.2:
     jest-file-exists "^15.0.0"
     jest-resolve "^16.0.2"
 
+<<<<<<< HEAD
 jest-resolve@^16.0.2:
   version "16.0.2"
   resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-16.0.2.tgz#46b92b9c2a44aa7ddd9a6b73dc234e9503e8c609"
@@ -3007,6 +3023,9 @@ jest-resolve@^16.0.2:
     resolve "^1.1.6"
 
 "jest-resolve@git+https://github.com/exponentjs/jest-resolve":
+=======
+jest-resolve@^16.0.2, "jest-resolve@git+https://github.com/exponentjs/jest-resolve":
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
   version "16.0.2"
   resolved "git+https://github.com/exponentjs/jest-resolve#f9228216fcd2106fa2ea1bce808e95bada5c477c"
   dependencies:
@@ -4071,6 +4090,13 @@ react-mixin@^3.0.5:
     object-assign "^4.0.1"
     smart-mixin "^2.0.0"
 
+<<<<<<< HEAD
+=======
+react-native-button@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-native-button/-/react-native-button-1.7.1.tgz#0c3fb34e7f99dc2c9a8166094be878eb7cb3c36e"
+
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
 react-native-camera@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-0.4.0.tgz#24068858c2c7b4141398024a966eb30de4436e8b"
@@ -4086,12 +4112,15 @@ react-native-drawer-layout@^1.0.0:
     autobind-decorator "^1.3.2"
     react-native-dismiss-keyboard "1.0.0"
 
+<<<<<<< HEAD
 react-native-elements@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-0.7.0.tgz#f3a7ea4de0b7ccae4c5fe8eba698a58bb4138ef1"
   dependencies:
     react-native-tab-navigator "^0.3.3"
 
+=======
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
 "react-native-maps@git+https://github.com/exponentjs/react-native-maps#12853f0":
   version "0.11.0"
   resolved "git+https://github.com/exponentjs/react-native-maps#12853f0"
@@ -4103,12 +4132,15 @@ react-native-elements@^0.7.0:
     color "^0.11.1"
     lodash "^4.0.0"
 
+<<<<<<< HEAD
 react-native-tab-navigator@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/react-native-tab-navigator/-/react-native-tab-navigator-0.3.3.tgz#b222bad21fbe773c8d28f9a0de30ce62b08724d3"
   dependencies:
     immutable "^3.8.1"
 
+=======
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
 react-native-tab-view@^0.0.38:
   version "0.0.38"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.38.tgz#4194bba0abda9f781101c1a995c92733b194461a"
@@ -4837,6 +4869,25 @@ tar-stream@^1.1.1:
     readable-stream "^2.0.0"
     xtend "^4.0.0"
 
+<<<<<<< HEAD
+=======
+tcomb-form-native@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/tcomb-form-native/-/tcomb-form-native-0.6.1.tgz#42d2b987b6c697acfcac57bbfa49c697a94d28ed"
+  dependencies:
+    tcomb-validation "^3.0.0"
+
+tcomb-validation@^3.0.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/tcomb-validation/-/tcomb-validation-3.3.0.tgz#29ada8534203500e90b245eedd0e1a80f1909ba2"
+  dependencies:
+    tcomb "^3.0.0"
+
+tcomb@^3.0.0:
+  version "3.2.15"
+  resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.15.tgz#09e40f447976d1d9c07ff465b8377342a8fe67e1"
+
+>>>>>>> ceee1fab1bf7645e63cb8a76fa3277f1389219c7
 temp@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/temp/-/temp-0.8.3.tgz#e0c6bc4d26b903124410e4fed81103014dfc1f59"
