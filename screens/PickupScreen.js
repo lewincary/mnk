@@ -1,77 +1,141 @@
-import React from 'react';
+import React, {
+  PropTypes,
+} from 'react';
 import {
-    Image,
-    Linking,
-    Platform,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ActionSheetIOS,
+  ActivityIndicator,
+  Alert,
+  AlertIOS,
+  DatePickerIOS,
+  Image,
+  Picker,
+  Platform,
+  ProgressViewIOS,
+  RefreshControl,
+  SegmentedControlIOS,
+  Slider,
+  Switch,
+  StatusBar,
+  ListView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableHighlight,
+  View,
+  WebView,
 } from 'react-native';
+import TouchableBounce from 'react-native/Libraries/Components/Touchable/TouchableBounce';
+import {
+  withNavigation
+} from '@exponent/ex-navigation';
+
+import {
+  ImagePicker,
+} from 'exponent';
+
+import { connect } from 'react-redux';
+const { MapView } = Components;
+
+import Colors from '../constants/Colors';
+import Layout from '../constants/Layout';
+import Router from '../navigation/Router';
+import { CheckBox } from 'react-native-elements'
+
 import { Components } from 'exponent';
 
 import { MonoText } from '../components/StyledText';
 
+var markers = [
+    {
+        latitude: 37.4241,
+        longitude: -122.1661,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+        title: 'Leftover Pizza',
+        subtitle: 'hello',
+        animateDrop: true,
+    },
+    {
+        latitude: 37.4245,
+        longitude: -122.1663,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+        title: 'Lasagna',
+    },
+    {
+        latitude: 37.4242,
+        longitude: -122.1664,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+        title: 'Canned Soup',
+    },
+    {
+        latitude: 37.4242,
+        longitude: -122.1664,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+        title: 'Cake',
+    }
+];
+
+
+var markers_2 = [
+  {
+    latitude: 45.65,
+    longitude: -78.90,
+    title: 'Foo Place',
+    subtitle: '1234 Foo Drive'
+  }
+];
+
 export default class PickupScreen extends React.Component {
     static route = {
         navigationBar: {
-            visible: false,
+            visible: true,
+            title: 'Pickup',
+            translucent: true,
         },
     }
 
+    state = {
+        mapRegion: {
+            latitude: 37.4241,
+            longitude: -122.1661,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+        },
+        annotations: [
+            {
+                latitude: 37.4241,
+                longitude: -122.1661,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+                title: 'Leftover Pizza',
+                subtitle: 'hello',
+                animateDrop: true,
+            },
+        ],
+    }
+
+
+
     render() {
         return (
+
             <View style={styles.container}>
-
-                <View style={styles.mnk_section_hdr}>
-                <Text style={styles.hd1}>Pickup</Text>
-                </View>
-
-                <Components.MapView
+                <MapView
                 style={{flex: 1}}
-                initialRegion={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                }}
-                />
-
-
+                region={this.state.mapRegion}
+                annotations = { this.state.annotations }
+                showsUserLocation = {true}
+                showsAnnotationCallouts  = {true}
+                >
+                </MapView>
             </View>
+
         );
-    }
-
-    _maybeRenderDevelopmentModeWarning() {
-        if (__DEV__) {
-            const learnMoreButton = (
-                <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-                Learn more
-                </Text>
-            );
-
-            return (
-                <Text style={styles.developmentModeText}>
-                Development mode is enabled, your app will run slightly slower but
-                you have access to useful development tools. {learnMoreButton}.
-                </Text>
-            );
-        } else {
-            return (
-                <Text style={styles.developmentModeText}>
-                You are not in development mode, your app will run at full speed.
-                </Text>
-            );
-        }
-    }
-
-    _handleLearnMorePress = () => {
-        Linking.openURL('https://docs.getexponent.com/versions/latest/guides/development-mode');
-    }
-
-    _handleHelpPress = () => {
-        Linking.openURL('https://docs.getexponent.com/versions/latest/guides/up-and-running.html#can-t-see-your-changes');
     }
 }
 
@@ -168,5 +232,8 @@ const styles = StyleSheet.create({
     helpLinkText: {
         fontSize: 14,
         color: '#2e78b7',
+    },
+    map: {
+        flex: 1,
     },
 });
