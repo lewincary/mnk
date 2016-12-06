@@ -25,6 +25,7 @@ import {
   TouchableHighlight,
   View,
   WebView,
+  MapView,
 } from 'react-native';
 import {
   withNavigation
@@ -40,7 +41,7 @@ import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
 
-import { Components } from 'exponent';
+
 import { List, ListItem } from 'react-native-elements';
 
 const list = [
@@ -77,42 +78,21 @@ var markers = [
         longitude: -122.1661,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
-        title: 'Leftover Pizza',
-        subtitle: 'hello',
+        title: 'Leftover Lasagna',
+        subtitle: '0.3 miles away',
         animateDrop: true,
     },
     {
         latitude: 37.4245,
-        longitude: -122.1663,
+        longitude: -122.1783,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
-        title: 'Lasagna',
+        title: 'Carrots',
+        subtitle: '0.4 miles away',
+        animateDrop: true,
     },
-    {
-        latitude: 37.4242,
-        longitude: -122.1664,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Canned Soup',
-    },
-    {
-        latitude: 37.4242,
-        longitude: -122.1664,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Cake',
-    }
 ];
 
-
-var markers_2 = [
-  {
-    latitude: 45.65,
-    longitude: -78.90,
-    title: 'Foo Place',
-    subtitle: '1234 Foo Drive'
-  }
-];
 
 export default class PickupScreen extends React.Component {
     static route = {
@@ -121,20 +101,19 @@ export default class PickupScreen extends React.Component {
             title: 'Pickup'
         },
     }
-
     state = {
         mapRegion: {
             latitude: 37.4241,
             longitude: -122.1661,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.0322,
+            longitudeDelta: 0.0021,
         },
         annotations: [
             {
                 latitude: 37.4241,
                 longitude: -122.1661,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
+                latitudeDelta: 0.0622,
+                longitudeDelta: 0.0221,
                 title: 'Leftover Pizza',
                 subtitle: 'hello',
                 animateDrop: true,
@@ -159,14 +138,14 @@ export default class PickupScreen extends React.Component {
                         }
                     }}
                 ></SegmentedControlIOS>
-                <Components.MapView
+                <MapView
                 style={{flex: 1}}
                 region={this.state.mapRegion}
                 annotations = { markers }
                 showsUserLocation = {true}
                 showsAnnotationCallouts  = {true}
                 >
-                </Components.MapView>
+                </MapView>
             </View>
 
         );

@@ -45,30 +45,16 @@ import { List, ListItem } from 'react-native-elements';
 
 const list = [
     {
-        name: 'Cake',
-        avatar_url: 'http://media3.s-nbcnews.com/j/newscms/2016_25/1134626/rainbow-cake-finishedt-today-160621_86a1445147f5a7eda43a54f6e86033f4.today-inline-large.jpg',
+        name: 'Leftover Lasagna',
+        avatar_url: 'http://assets.simplyrecipes.com/wp-content/uploads/2004/12/lasagna-horiz-b-2000.jpg',
         subtitle: '0.3 miles away'
     },
     {
-        name: 'Pasta',
-        avatar_url: 'http://www.pmq.com/January-2013/Pasta-dishes-yield-high-profits-enhance-menus-and-help-create-a-true-Italian-dining-experience/pasta-openpic.jpg',
+        name: 'Carrots',
+        avatar_url: 'http://www.timefornaturalhealthcare.com/wp-content/uploads/2015/12/7-things-you-didnt-know-about-the-powerful-carrot.jpg',
         subtitle: '0.4 miles away'
     },
-    {
-        name: 'Potatoes',
-        avatar_url: 'http://blog.oxforddictionaries.com/wp-content/uploads/potato.jpg',
-        subtitle: '0.7 miles away'
-    },
-    {
-        name: 'Steak',
-        avatar_url: 'https://i.ytimg.com/vi/qKwKWwGt1SY/maxresdefault.jpg',
-        subtitle: '1.1 miles away'
-    },
-    {
-        name: 'Lobster',
-        avatar_url: 'http://www.lobsterboatrestaurant.com/images/twinlobster.png',
-        subtitle: '1.3'
-    },
+
 ]
 
 
@@ -105,15 +91,6 @@ var markers = [
     }
 ];
 
-
-var markers_2 = [
-  {
-    latitude: 45.65,
-    longitude: -78.90,
-    title: 'Foo Place',
-    subtitle: '1234 Foo Drive'
-  }
-];
 
 export default class PickupScreen extends React.Component {
     static route = {
