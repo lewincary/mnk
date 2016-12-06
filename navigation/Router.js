@@ -18,6 +18,6 @@ export default createRouter(() => ({
   chat: () => ChatScreen,
   chatAmy: () => ChatScreenAmy,
   chatChris: () => ChatScreenChris,
-  events: () => EventsScreen,
+  impact: () => EventsScreen,
   rootNavigation: () => RootNavigation,
 }));

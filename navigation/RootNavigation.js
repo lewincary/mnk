@@ -63,10 +63,10 @@ export default class RootNavigation extends React.Component {
         </TabNavigationItem>
 
         <TabNavigationItem
-          id="events"
-          title="events"
+          id="impact"
+          title="impact"
           renderIcon={isSelected => this._renderIcon('bullseye', isSelected)}>
-          <StackNavigation initialRoute="events" />
+          <StackNavigation initialRoute="impact" />
         </TabNavigationItem>
       </TabNavigation>
     );
