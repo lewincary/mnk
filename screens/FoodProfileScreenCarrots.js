@@ -41,87 +41,75 @@ import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
 
 import { Components } from 'exponent';
-import { List, ListItem } from 'react-native-elements';
+import { PricingCard, Card, Button, List, ListItem } from 'react-native-elements';
 
 const list = [
     {
-        name: 'Cake',
-        avatar_url: 'http://media3.s-nbcnews.com/j/newscms/2016_25/1134626/rainbow-cake-finishedt-today-160621_86a1445147f5a7eda43a54f6e86033f4.today-inline-large.jpg',
-        subtitle: '10 min left to pickup!'
+        name: 'Leftover Lasagna',
+        avatar_url: 'http://assets.simplyrecipes.com/wp-content/uploads/2004/12/lasagna-horiz-b-2000.jpg',
+        subtitle: '0.3 miles away'
     },
     {
-        name: 'Pasta',
-        avatar_url: 'http://www.pmq.com/January-2013/Pasta-dishes-yield-high-profits-enhance-menus-and-help-create-a-true-Italian-dining-experience/pasta-openpic.jpg',
-        subtitle: '3 days ago'
+        name: 'Carrots',
+        avatar_url: 'http://www.timefornaturalhealthcare.com/wp-content/uploads/2015/12/7-things-you-didnt-know-about-the-powerful-carrot.jpg',
+        subtitle: '0.4 miles away'
     },
-    {
-        name: 'Potatoes',
-        avatar_url: 'http://blog.oxforddictionaries.com/wp-content/uploads/potato.jpg',
-        subtitle: '5 days ago'
-    },
-    {
-        name: 'Steak',
-        avatar_url: 'https://i.ytimg.com/vi/qKwKWwGt1SY/maxresdefault.jpg',
-        subtitle: '7 days ago'
-    },
-    {
-        name: 'Lobster',
-        avatar_url: 'http://www.lobsterboatrestaurant.com/images/twinlobster.png',
-        subtitle: '9 days ago'
-    },
+
 ]
 
+const users = [
+ {
+    name: 'brynn',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+ },
+]
 
-export default class HomeScreen extends React.Component {
+export default class PickupScreen extends React.Component {
     static route = {
         navigationBar: {
             visible: true,
-            title: 'My Meals'
+            title: 'Pickup'
         },
     }
-
     render() {
         return (
-            <View style={styles.container}>
-            <SegmentedControlIOS
-                tintColor={Colors.tintColor}
-                values={['Orders', 'Donations']}
-                selectedIndex={0}
-                onValueChange ={(value) => {
-                    if (value == "Orders") {
-                        this.props.navigator.replace(Router.getRoute('track'));
-                    } else {
-                        this.props.navigator.replace(Router.getRoute('trackDonations'));
-                    }
-                }}
-            ></SegmentedControlIOS>
-            <List containerStyle={{marginBottom: 20}}>
-            {
-                list.map((l, i) => (
-                    <ListItem
-                    roundAvatar
-                    avatar={{uri:l.avatar_url}}
-                    key={i}
-                    title={l.name}
-                    subtitle={l.subtitle}
-                    />
-                ))
-            }
-            </List>
+            <View style={{flex: 1}}>
 
+            <Image
+            style={{flex: 1}}
+            source={{uri: 'http://www.timefornaturalhealthcare.com/wp-content/uploads/2015/12/7-things-you-didnt-know-about-the-powerful-carrot.jpg'}}
+            ></Image>
+            <PricingCard
+                color={Colors.tintColor}
+                title='Carrots'
+                price='0.4 Miles Away'
+                info={['5 carrots', 'Basic Support', 'All Core Features']}
+                button={{ title: 'Claim', icon: 'flight-takeoff' }}
+            >
+            </PricingCard>
             </View>
+
         );
     }
+
+    _handlePress(l){
+        this.props.navigator.push(Router.getRoute('track'));
+    }
+
 }
 
+
+
 const styles = StyleSheet.create({
-    tabContent: {
-        flex: 1,
-        alignItems: 'center'
+    hd1: {
+        fontSize: 35,
+        color: '#F9AD5F',
+        textAlign: 'center',
     },
-    tabText: {
-        margin: 50,
-        fontSize: 40
+    mnk_section_hdr: {
+        height: 60,
+        paddingTop: 10,
+        margin: 20,
     },
     container: {
         flex: 1,
@@ -205,5 +193,8 @@ const styles = StyleSheet.create({
     helpLinkText: {
         fontSize: 14,
         color: '#2e78b7',
+    },
+    map: {
+        flex: 1,
     },
 });

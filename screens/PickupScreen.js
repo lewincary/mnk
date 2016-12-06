@@ -25,8 +25,8 @@ import {
   TouchableHighlight,
   View,
   WebView,
+  MapView,
 } from 'react-native';
-import TouchableBounce from 'react-native/Libraries/Components/Touchable/TouchableBounce';
 import {
   withNavigation
 } from '@exponent/ex-navigation';
@@ -36,16 +36,41 @@ import {
 } from 'exponent';
 
 import { connect } from 'react-redux';
-const { MapView } = Components;
 
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
-import { CheckBox } from 'react-native-elements'
 
-import { Components } from 'exponent';
 
-import { MonoText } from '../components/StyledText';
+import { List, ListItem } from 'react-native-elements';
+
+const list = [
+    {
+        name: 'Cake',
+        avatar_url: 'http://media3.s-nbcnews.com/j/newscms/2016_25/1134626/rainbow-cake-finishedt-today-160621_86a1445147f5a7eda43a54f6e86033f4.today-inline-large.jpg',
+        subtitle: '10 min left to pickup!'
+    },
+    {
+        name: 'Pasta',
+        avatar_url: 'http://www.pmq.com/January-2013/Pasta-dishes-yield-high-profits-enhance-menus-and-help-create-a-true-Italian-dining-experience/pasta-openpic.jpg',
+        subtitle: '3 days ago'
+    },
+    {
+        name: 'Potatoes',
+        avatar_url: 'http://blog.oxforddictionaries.com/wp-content/uploads/potato.jpg',
+        subtitle: '5 days ago'
+    },
+    {
+        name: 'Steak',
+        avatar_url: 'https://i.ytimg.com/vi/qKwKWwGt1SY/maxresdefault.jpg',
+        subtitle: '7 days ago'
+    },
+    {
+        name: 'Lobster',
+        avatar_url: 'http://www.lobsterboatrestaurant.com/images/twinlobster.png',
+        subtitle: '9 days ago'
+    },
+]
 
 var markers = [
     {
@@ -53,65 +78,42 @@ var markers = [
         longitude: -122.1661,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
-        title: 'Leftover Pizza',
-        subtitle: 'hello',
+        title: 'Leftover Lasagna',
+        subtitle: '0.3 miles away',
         animateDrop: true,
     },
     {
         latitude: 37.4245,
-        longitude: -122.1663,
+        longitude: -122.1783,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
-        title: 'Lasagna',
+        title: 'Carrots',
+        subtitle: '0.4 miles away',
+        animateDrop: true,
     },
-    {
-        latitude: 37.4242,
-        longitude: -122.1664,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Canned Soup',
-    },
-    {
-        latitude: 37.4242,
-        longitude: -122.1664,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Cake',
-    }
 ];
 
-
-var markers_2 = [
-  {
-    latitude: 45.65,
-    longitude: -78.90,
-    title: 'Foo Place',
-    subtitle: '1234 Foo Drive'
-  }
-];
 
 export default class PickupScreen extends React.Component {
     static route = {
         navigationBar: {
             visible: true,
-            title: 'Pickup',
-            translucent: true,
+            title: 'Pickup'
         },
     }
-
     state = {
         mapRegion: {
             latitude: 37.4241,
             longitude: -122.1661,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.0322,
+            longitudeDelta: 0.0021,
         },
         annotations: [
             {
                 latitude: 37.4241,
                 longitude: -122.1661,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
+                latitudeDelta: 0.0622,
+                longitudeDelta: 0.0221,
                 title: 'Leftover Pizza',
                 subtitle: 'hello',
                 animateDrop: true,
@@ -123,19 +125,39 @@ export default class PickupScreen extends React.Component {
 
     render() {
         return (
-
-            <View style={styles.container}>
+            <View style={{flex: 1}}>
+                <SegmentedControlIOS
+                    tintColor={Colors.tintColor}
+                    values={['Map', 'List']}
+                    selectedIndex={0}
+                    onValueChange ={(value) => {
+                        if (value == "Map") {
+                            this.props.navigator.replace(Router.getRoute('pickup'));
+                        } else {
+                            this.props.navigator.replace(Router.getRoute('pickupList'));
+                        }
+                    }}
+                ></SegmentedControlIOS>
                 <MapView
                 style={{flex: 1}}
                 region={this.state.mapRegion}
-                annotations = { this.state.annotations }
+                annotations = { markers }
                 showsUserLocation = {true}
                 showsAnnotationCallouts  = {true}
+                onAnnotationPress={this.onAnnotationPress}
                 >
                 </MapView>
             </View>
 
         );
+    }
+
+    onAnnotationPress =(annotation) =>{
+        if (annotation.title == "Carrots") {
+            this.props.navigator.push(Router.getRoute('foodProfileCarrots'));
+        } else {
+            this.props.navigator.push(Router.getRoute('foodProfileLasagna'));
+        }
     }
 }
 

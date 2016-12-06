@@ -5,6 +5,7 @@ import {
   StyleSheet,
   View,
   Text,
+  Alert,
 } from 'react-native';
 import {
   ExponentConfigView,
@@ -27,24 +28,60 @@ export default class SettingsScreen extends React.Component {
         <View style={{flexDirection: 'row', padding: 10}}>
           <Card
             title='Your Stats'
-            image={require('../images/Amy.jpg')}>
-            <Text style={{marginBottom: 10}}>
-              The idea with React Native Elements is more about component structure than actual design.
+            titleStyle={[styles.titleStyle]}
+            image={require('../images/Amy.jpg')}
+            containerStyle={{padding: 0}}>
+            <Text style={{marginBottom: 10, textAlign:'center', fontSize:18}}>
+              Donated:                     <Text style={{fontWeight:'bold'}}>30</Text> meals     
+            </Text>
+            <Text style={{marginBottom: 10, textAlign:'center', fontSize:18}}>
+              Claimed:                      <Text style={{fontWeight:'bold'}}>21</Text> meals
             </Text>
           </Card>
         </View>
-        <View style={{flexDirection: 'row', padding: 40}}>
-          <Progress.Bar progress={0.3} width={200} color={Colors.tintColor}/>
+        <View style={{flexDirection: 'row', padding: 10}}>
+          <Card
+            title='Thanksgiving Donation Challenge'
+            titleStyle={[styles.titleStyle]}
+            image={require('../images/Thanksgiving.jpg')}
+            containerStyle={{padding: 0}}>
+            <Progress.Bar progress={0.3} width={250} color={Colors.tintColor}/>
+            <Text style={{marginTop:13, marginBottom:15, textAlign:'center', fontSize:20}}>
+              <Text style={{fontWeight:'bold'}}>30/100</Text> meals donated   
+            </Text>
+            <Button
+              backgroundColor='#f9ad5f'
+              buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+              title='JOIN' 
+              onPress={() => Alert.alert(
+                'You have joined the challenge.',
+                null,
+                [
+                  {text: 'OK', onPress: () => console.log('OK Pressed!')},
+                ]
+              )}/>
+          </Card>
         </View>
 
       </ScrollView>
     );
   }
 }
+/*const showAlert = () => {
+  Alert.alert(
+    'Your food was posted!',
+    'Thanks for helping end food waste.',
+  )
+}*/
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  titleStyle: {
+    textAlign:'center',
+    fontSize:18,
+    marginBottom:15,
   },
 });
 

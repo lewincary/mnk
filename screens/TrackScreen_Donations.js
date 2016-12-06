@@ -35,42 +35,39 @@ import {
 } from 'exponent';
 
 import { connect } from 'react-redux';
-
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
-
 import { Components } from 'exponent';
 import { List, ListItem } from 'react-native-elements';
 
 const list = [
     {
-        name: 'Cake',
-        avatar_url: 'http://media3.s-nbcnews.com/j/newscms/2016_25/1134626/rainbow-cake-finishedt-today-160621_86a1445147f5a7eda43a54f6e86033f4.today-inline-large.jpg',
-        subtitle: '10 min left to pickup!'
+        name: 'Lasagna',
+        avatar_url: 'http://assets.simplyrecipes.com/wp-content/uploads/2004/12/lasagna-horiz-b-2000.jpg',
+        subtitle: '1 day ago'
     },
     {
-        name: 'Pasta',
-        avatar_url: 'http://www.pmq.com/January-2013/Pasta-dishes-yield-high-profits-enhance-menus-and-help-create-a-true-Italian-dining-experience/pasta-openpic.jpg',
+        name: 'Pizza',
+        avatar_url: 'http://static.comicvine.com/uploads/original/11114/111144184/4791207-9790062099-Pizza.jpg',
         subtitle: '3 days ago'
     },
     {
-        name: 'Potatoes',
-        avatar_url: 'http://blog.oxforddictionaries.com/wp-content/uploads/potato.jpg',
-        subtitle: '5 days ago'
+        name: 'Soup',
+        avatar_url: 'http://speed.brandoncarter.com/content/2016/01/Vegetables-Soup.jpg',
+        subtitle: '4 days ago'
     },
     {
-        name: 'Steak',
-        avatar_url: 'https://i.ytimg.com/vi/qKwKWwGt1SY/maxresdefault.jpg',
-        subtitle: '7 days ago'
+        name: 'Chicken',
+        avatar_url: 'http://images.media-allrecipes.com/userphotos/560x315/211414.jpg',
+        subtitle: '6 days ago'
     },
     {
-        name: 'Lobster',
-        avatar_url: 'http://www.lobsterboatrestaurant.com/images/twinlobster.png',
-        subtitle: '9 days ago'
+        name: 'Quiche',
+        avatar_url: 'http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2015/8/4/1/VB0102H_Quiche-Valerie_s4x3.jpg',
+        subtitle: '8 days ago'
     },
 ]
-
 
 export default class HomeScreen extends React.Component {
     static route = {
@@ -86,7 +83,7 @@ export default class HomeScreen extends React.Component {
             <SegmentedControlIOS
                 tintColor={Colors.tintColor}
                 values={['Orders', 'Donations']}
-                selectedIndex={0}
+                selectedIndex={1}
                 onValueChange ={(value) => {
                     if (value == "Orders") {
                         this.props.navigator.replace(Router.getRoute('track'));
@@ -108,6 +105,7 @@ export default class HomeScreen extends React.Component {
                 ))
             }
             </List>
+
 
             </View>
         );
