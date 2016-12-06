@@ -11,6 +11,8 @@ import ChatScreen from '../screens/ChatScreen';
 import ChatScreenChris from '../screens/ChatScreen_Chris';
 import ChatScreenAmy from '../screens/ChatScreen_Amy';
 import EventsScreen from '../screens/EventsScreen';
+import FoodProfileScreenCarrots from '../screens/FoodProfileScreenCarrots';
+import FoodProfileScreenLasagna from '../screens/FoodProfileScreenLasagna';
 import RootNavigation from './RootNavigation';
 
 export default createRouter(() => ({
@@ -24,4 +26,6 @@ export default createRouter(() => ({
   chatChris: () => ChatScreenChris,
   events: () => EventsScreen,
   rootNavigation: () => RootNavigation,
+  foodProfileCarrots: () => FoodProfileScreenCarrots,
+  foodProfileLasagna: () => FoodProfileScreenLasagna,
 }));

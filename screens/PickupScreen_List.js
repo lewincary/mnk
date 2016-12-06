@@ -134,7 +134,11 @@ export default class PickupScreen extends React.Component {
     }
 
     _handlePress(l){
-        this.props.navigator.push(Router.getRoute('track'));
+        if (l.name=='Carrots') {
+            this.props.navigator.push(Router.getRoute('foodProfileCarrots'));
+        } else {
+            this.props.navigator.push(Router.getRoute('foodProfileLasagna'));
+        }
     }
 
 }
