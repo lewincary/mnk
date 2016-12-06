@@ -41,7 +41,35 @@ import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
 
 import { Components } from 'exponent';
+import { List, ListItem } from 'react-native-elements';
 
+const list = [
+    {
+        name: 'Cake',
+        avatar_url: 'http://media3.s-nbcnews.com/j/newscms/2016_25/1134626/rainbow-cake-finishedt-today-160621_86a1445147f5a7eda43a54f6e86033f4.today-inline-large.jpg',
+        subtitle: '10 min left to pickup!'
+    },
+    {
+        name: 'Pasta',
+        avatar_url: 'http://www.pmq.com/January-2013/Pasta-dishes-yield-high-profits-enhance-menus-and-help-create-a-true-Italian-dining-experience/pasta-openpic.jpg',
+        subtitle: '3 days ago'
+    },
+    {
+        name: 'Potatoes',
+        avatar_url: 'http://blog.oxforddictionaries.com/wp-content/uploads/potato.jpg',
+        subtitle: '5 days ago'
+    },
+    {
+        name: 'Steak',
+        avatar_url: 'https://i.ytimg.com/vi/qKwKWwGt1SY/maxresdefault.jpg',
+        subtitle: '7 days ago'
+    },
+    {
+        name: 'Lobster',
+        avatar_url: 'http://www.lobsterboatrestaurant.com/images/twinlobster.png',
+        subtitle: '9 days ago'
+    },
+]
 
 var markers = [
     {
