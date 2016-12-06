@@ -47,27 +47,27 @@ const list = [
     {
         name: 'Cake',
         avatar_url: 'http://media3.s-nbcnews.com/j/newscms/2016_25/1134626/rainbow-cake-finishedt-today-160621_86a1445147f5a7eda43a54f6e86033f4.today-inline-large.jpg',
-        subtitle: '10 min left to pickup!'
+        subtitle: '0.3 miles away'
     },
     {
         name: 'Pasta',
         avatar_url: 'http://www.pmq.com/January-2013/Pasta-dishes-yield-high-profits-enhance-menus-and-help-create-a-true-Italian-dining-experience/pasta-openpic.jpg',
-        subtitle: '3 days ago'
+        subtitle: '0.4 miles away'
     },
     {
         name: 'Potatoes',
         avatar_url: 'http://blog.oxforddictionaries.com/wp-content/uploads/potato.jpg',
-        subtitle: '5 days ago'
+        subtitle: '0.7 miles away'
     },
     {
         name: 'Steak',
         avatar_url: 'https://i.ytimg.com/vi/qKwKWwGt1SY/maxresdefault.jpg',
-        subtitle: '7 days ago'
+        subtitle: '1.1 miles away'
     },
     {
         name: 'Lobster',
         avatar_url: 'http://www.lobsterboatrestaurant.com/images/twinlobster.png',
-        subtitle: '9 days ago'
+        subtitle: '1.3'
     },
 ]
 
@@ -122,29 +122,6 @@ export default class PickupScreen extends React.Component {
             title: 'Pickup'
         },
     }
-
-    state = {
-        mapRegion: {
-            latitude: 37.4241,
-            longitude: -122.1661,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-        },
-        annotations: [
-            {
-                latitude: 37.4241,
-                longitude: -122.1661,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-                title: 'Leftover Pizza',
-                subtitle: 'hello',
-                animateDrop: true,
-            },
-        ],
-    }
-
-    list_arr = [ Router.getRoute('pickup')];
-
     render() {
         return (
             <View style={{flex: 1}}>
@@ -160,9 +137,6 @@ export default class PickupScreen extends React.Component {
                         }
                     }}
                 ></SegmentedControlIOS>
-                <Text>
-                List view!
-                </Text>
                 <List containerStyle={{marginBottom: 20}}>
                 {
                     list.map((l, i) => (
@@ -172,6 +146,7 @@ export default class PickupScreen extends React.Component {
                         key={i}
                         title={l.name}
                         subtitle={l.subtitle}
+                        onPress={() => this._handlePress(l)}
                         />
                     ))
                 }
@@ -180,7 +155,14 @@ export default class PickupScreen extends React.Component {
 
         );
     }
+
+    _handlePress(l){
+        this.props.navigator.push(Router.getRoute('track'));
+    }
+
 }
+
+
 
 const styles = StyleSheet.create({
     hd1: {

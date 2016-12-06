@@ -162,7 +162,7 @@ export default class PickupScreen extends React.Component {
                 <Components.MapView
                 style={{flex: 1}}
                 region={this.state.mapRegion}
-                annotations = { this.state.annotations }
+                annotations = { markers }
                 showsUserLocation = {true}
                 showsAnnotationCallouts  = {true}
                 >
