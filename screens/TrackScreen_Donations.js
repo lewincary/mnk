@@ -35,126 +35,91 @@ import {
 } from 'exponent';
 
 import { connect } from 'react-redux';
-
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
-
 import { Components } from 'exponent';
+import { List, ListItem } from 'react-native-elements';
 
-
-var markers = [
+const list = [
     {
-        latitude: 37.4241,
-        longitude: -122.1661,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Leftover Pizza',
-        subtitle: 'hello',
-        animateDrop: true,
+        name: 'Lasagna',
+        avatar_url: 'http://assets.simplyrecipes.com/wp-content/uploads/2004/12/lasagna-horiz-b-2000.jpg',
+        subtitle: '1 day ago'
     },
     {
-        latitude: 37.4245,
-        longitude: -122.1663,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Lasagna',
+        name: 'Pizza',
+        avatar_url: 'http://static.comicvine.com/uploads/original/11114/111144184/4791207-9790062099-Pizza.jpg',
+        subtitle: '3 days ago'
     },
     {
-        latitude: 37.4242,
-        longitude: -122.1664,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Canned Soup',
+        name: 'Soup',
+        avatar_url: 'http://speed.brandoncarter.com/content/2016/01/Vegetables-Soup.jpg',
+        subtitle: '4 days ago'
     },
     {
-        latitude: 37.4242,
-        longitude: -122.1664,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        title: 'Cake',
-    }
-];
+        name: 'Chicken',
+        avatar_url: 'http://images.media-allrecipes.com/userphotos/560x315/211414.jpg',
+        subtitle: '6 days ago'
+    },
+    {
+        name: 'Quiche',
+        avatar_url: 'http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2015/8/4/1/VB0102H_Quiche-Valerie_s4x3.jpg',
+        subtitle: '8 days ago'
+    },
+]
 
-
-var markers_2 = [
-  {
-    latitude: 45.65,
-    longitude: -78.90,
-    title: 'Foo Place',
-    subtitle: '1234 Foo Drive'
-  }
-];
-
-export default class PickupScreen extends React.Component {
+export default class HomeScreen extends React.Component {
     static route = {
         navigationBar: {
             visible: true,
-            title: 'Pickup'
+            title: 'My Meals'
         },
     }
-
-    state = {
-        mapRegion: {
-            latitude: 37.4241,
-            longitude: -122.1661,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-        },
-        annotations: [
-            {
-                latitude: 37.4241,
-                longitude: -122.1661,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-                title: 'Leftover Pizza',
-                subtitle: 'hello',
-                animateDrop: true,
-            },
-        ],
-    }
-
-
 
     render() {
         return (
-            <View style={{flex: 1}}>
-                <SegmentedControlIOS
-                    tintColor={Colors.tintColor}
-                    values={['Map', 'List']}
-                    selectedIndex={0}
-                    onValueChange ={(value) => {
-                        if (value == "Map") {
-                            this.props.navigator.replace(Router.getRoute('pickup'));
-                        } else {
-                            this.props.navigator.replace(Router.getRoute('pickupList'));
-                        }
-                    }}
-                ></SegmentedControlIOS>
-                <Components.MapView
-                style={{flex: 1}}
-                region={this.state.mapRegion}
-                annotations = { this.state.annotations }
-                showsUserLocation = {true}
-                showsAnnotationCallouts  = {true}
-                >
-                </Components.MapView>
-            </View>
+            <View style={styles.container}>
+            <SegmentedControlIOS
+                tintColor={Colors.tintColor}
+                values={['Orders', 'Donations']}
+                selectedIndex={1}
+                onValueChange ={(value) => {
+                    if (value == "Orders") {
+                        this.props.navigator.replace(Router.getRoute('track'));
+                    } else {
+                        this.props.navigator.replace(Router.getRoute('trackDonations'));
+                    }
+                }}
+            ></SegmentedControlIOS>
+            <List containerStyle={{marginBottom: 20}}>
+            {
+                list.map((l, i) => (
+                    <ListItem
+                    roundAvatar
+                    avatar={{uri:l.avatar_url}}
+                    key={i}
+                    title={l.name}
+                    subtitle={l.subtitle}
+                    />
+                ))
+            }
+            </List>
 
+
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    hd1: {
-        fontSize: 35,
-        color: '#F9AD5F',
-        textAlign: 'center',
+    tabContent: {
+        flex: 1,
+        alignItems: 'center'
     },
-    mnk_section_hdr: {
-        height: 60,
-        paddingTop: 10,
-        margin: 20,
+    tabText: {
+        margin: 50,
+        fontSize: 40
     },
     container: {
         flex: 1,
@@ -238,8 +203,5 @@ const styles = StyleSheet.create({
     helpLinkText: {
         fontSize: 14,
         color: '#2e78b7',
-    },
-    map: {
-        flex: 1,
     },
 });

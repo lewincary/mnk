@@ -50,7 +50,7 @@ export default class RootNavigation extends React.Component {
 
         <TabNavigationItem
           id="track"
-          title="track"
+          title="My Meals"
           renderIcon={isSelected => this._renderIcon('map-marker', isSelected)}>
           <StackNavigation initialRoute="track" />
         </TabNavigationItem>
@@ -64,7 +64,7 @@ export default class RootNavigation extends React.Component {
 
         <TabNavigationItem
           id="events"
-          title="events"
+          title="Impact"
           renderIcon={isSelected => this._renderIcon('bullseye', isSelected)}>
           <StackNavigation initialRoute="events" />
         </TabNavigationItem>

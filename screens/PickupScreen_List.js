@@ -114,7 +114,7 @@ export default class PickupScreen extends React.Component {
         ],
     }
 
-
+    list_arr = [ Router.getRoute('pickup')];
 
     render() {
         return (
@@ -122,7 +122,7 @@ export default class PickupScreen extends React.Component {
                 <SegmentedControlIOS
                     tintColor={Colors.tintColor}
                     values={['Map', 'List']}
-                    selectedIndex={0}
+                    selectedIndex={1}
                     onValueChange ={(value) => {
                         if (value == "Map") {
                             this.props.navigator.replace(Router.getRoute('pickup'));
@@ -131,14 +131,9 @@ export default class PickupScreen extends React.Component {
                         }
                     }}
                 ></SegmentedControlIOS>
-                <Components.MapView
-                style={{flex: 1}}
-                region={this.state.mapRegion}
-                annotations = { this.state.annotations }
-                showsUserLocation = {true}
-                showsAnnotationCallouts  = {true}
-                >
-                </Components.MapView>
+                <Text>
+                List view!
+                </Text>
             </View>
 
         );
