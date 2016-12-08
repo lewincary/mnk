@@ -134,6 +134,13 @@ export default class HomeScreen extends React.Component {
         />
     );
   }
+
+  _handleCheck(is_checked){
+      this.setState({
+        checked: !is_checked
+      })
+    }
+
   _renderCheckBoxes = () => {
 
     return (
@@ -141,14 +148,51 @@ export default class HomeScreen extends React.Component {
       <CheckBox
         title='Milk'
         checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        //_handleCheck is the function I defined above, on line 138
+        onPress={() => this._handleCheck(this.state.checked)}
+      ></CheckBox>
+      <CheckBox>
+        title='Egg'
+        checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        onPress={() => this._handleCheck(this.state.checked)}
+      ></CheckBox>
+      <CheckBox>
+        title='Meat'
+        checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        onPress={() => this._handleCheck(this.state.checked)}
       ></CheckBox>
       <CheckBox
-        title='Click Here'
+        title='Fish'
         checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        onPress={() => this._handleCheck(this.state.checked)}
       ></CheckBox>
-      <CheckBox
-        title='Click Here'
+      <CheckBox>
+        title='Gluten'
         checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        onPress={() => this._handleCheck(this.state.checked)}
+      ></CheckBox>
+      <CheckBox>
+        title='Nuts'
+        checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        onPress={() => this._handleCheck(this.state.checked)}
+      ></CheckBox>
+      <CheckBox>
+        title='Soy'
+        checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        onPress={() => this._handleCheck(this.state.checked)}
+      ></CheckBox>
+      <CheckBox>
+        title='Other (please describe below)'
+        checked={this.state.checked}
+        checkedColor = {Colors.tintColor}
+        onPress={() => this._handleCheck(this.state.checked)}
       ></CheckBox>
       </View>
     );
