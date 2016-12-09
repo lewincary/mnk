@@ -90,8 +90,7 @@ export default class HomeScreen extends React.Component {
   static route = {
     navigationBar: {
       title: 'Post',
-      translucent: true,
-      renderRight: () => <ExponentButton />,
+      visible: true,
     },
   }
 
