@@ -29,7 +29,7 @@ export default class SettingsScreen extends React.Component {
           <Card
             title='Your Stats'
             titleStyle={[styles.titleStyle]}
-            image={require('../images/Amy.jpg')}
+            image={require('../images/profilepic.jpeg')}
             containerStyle={{padding: 0}}>
             <Text style={{marginBottom: 10, textAlign:'center', fontSize:18}}>
               Donated:                     <Text style={{fontWeight:'bold'}}>30</Text> meals     
