@@ -43,11 +43,6 @@ import { List, ListItem } from 'react-native-elements';
 
 const list = [
     {
-        name: 'Lasagna',
-        avatar_url: 'http://assets.simplyrecipes.com/wp-content/uploads/2004/12/lasagna-horiz-b-2000.jpg',
-        subtitle: '1 day ago'
-    },
-    {
         name: 'Pizza',
         avatar_url: 'http://static.comicvine.com/uploads/original/11114/111144184/4791207-9790062099-Pizza.jpg',
         subtitle: '3 days ago'
@@ -101,6 +96,7 @@ export default class HomeScreen extends React.Component {
                     key={i}
                     title={l.name}
                     subtitle={l.subtitle}
+                    rightIcon={{name: 'check'}}
                     />
                 ))
             }

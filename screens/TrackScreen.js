@@ -45,9 +45,14 @@ import { PricingCard, Card, Button, List, ListItem } from 'react-native-elements
 
 const list = [
     {
+        name: 'Leftover Lasagna',
+        avatar_url: 'http://assets.simplyrecipes.com/wp-content/uploads/2004/12/lasagna-horiz-b-2000.jpg',
+        subtitle: '60 min left to pickup!'
+    },
+    {
         name: 'Cake',
         avatar_url: 'http://media3.s-nbcnews.com/j/newscms/2016_25/1134626/rainbow-cake-finishedt-today-160621_86a1445147f5a7eda43a54f6e86033f4.today-inline-large.jpg',
-        subtitle: '10 min left to pickup!'
+        subtitle: '1 day ago'
     },
     {
         name: 'Pasta',
@@ -79,6 +84,10 @@ export default class HomeScreen extends React.Component {
         },
     }
 
+    _handlePress(l){
+        if (l.name == 'Leftover Lasagna') this.props.navigator.push(Router.getRoute('foodProfileLasagna'));
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -104,8 +113,8 @@ export default class HomeScreen extends React.Component {
                     title={l.name}
                     subtitle={l.subtitle}
                     rightIcon={{name: 'check'}}
-                    >
-                    </ListItem>
+                    onPress={() => this._handlePress(l)}
+                    ></ListItem>
                 ))
             }
             </List>
