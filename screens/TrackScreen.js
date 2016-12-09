@@ -84,6 +84,10 @@ export default class HomeScreen extends React.Component {
         },
     }
 
+    _handlePress(l){
+        if (l.name == 'Leftover Lasagna') this.props.navigator.push(Router.getRoute('foodProfileLasagna'));
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -109,8 +113,8 @@ export default class HomeScreen extends React.Component {
                     title={l.name}
                     subtitle={l.subtitle}
                     rightIcon={{name: 'check'}}
-                    >
-                    </ListItem>
+                    onPress={() => this._handlePress(l)}
+                    ></ListItem>
                 ))
             }
             </List>
