@@ -71,6 +71,15 @@ export default class PickupScreen extends React.Component {
             title: 'Pickup'
         },
     }
+
+    _handleClaim(){
+      alert("You claimed Carrots!");
+      this.setState({
+        color: Colors.neutralColor
+      })
+      this.props.navigator.replace(Router.getRoute('track'));
+    }
+
     render() {
         return (
             <View style={{flex: 1}}>
@@ -83,8 +92,9 @@ export default class PickupScreen extends React.Component {
                 color={Colors.tintColor}
                 title='Carrots'
                 price='0.4 Miles Away'
-                info={['5 carrots', 'Basic Support', 'All Core Features']}
-                button={{ title: 'Claim', icon: 'flight-takeoff' }}
+                info={['5 carrots', 'No allergens', '672 Mayfield Ave']}
+                button={{ title: 'Claim', icon: 'check' }}
+                onButtonPress={() => this._handleClaim()}
             >
             </PricingCard>
             </View>

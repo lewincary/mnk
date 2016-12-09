@@ -101,6 +101,7 @@ export default class HomeScreen extends React.Component {
                     key={i}
                     title={l.name}
                     subtitle={l.subtitle}
+                    rightIcon={{name: 'check'}}
                     />
                 ))
             }
