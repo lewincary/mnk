@@ -116,7 +116,7 @@ export default class HomeScreen extends React.Component {
       //'Vertical ScrollView, RefreshContro': [this._renderRefreshControl],
       //'Progress': [this._renderProgressView],
       'Take a photo of the food...': [this._renderImagePicker],
-      'Add a photo of the food!': [this._renderHorizontalScrollView],
+      'Your Photo:': [this._renderHorizontalScrollView],
       'Please enter a title:': [this._renderTextInput],
       'Choose the type of food:': [this._renderSegmentedControl],
       'How many adults does it feed?': [this._renderPicker],
@@ -135,7 +135,6 @@ export default class HomeScreen extends React.Component {
       // 'View': [this._renderView],
       //'WebView': [this._renderWebView],
     });
-
     this.setState({dataSource});
   }
 
@@ -232,17 +231,17 @@ export default class HomeScreen extends React.Component {
   }
 
   _renderImagePicker = () => {
+
     const showCamera = async () => {
-      let result = await ImagePicker.launchCameraAsync({});
+      let result = await ImagePicker.launchCameraAsync({allowsEditing:true});
     }
 
     const showPhotos = async () => {
-      let result = await ImagePicker.launchImageLibraryAsync({});
+      let result = await ImagePicker.launchImageLibraryAsync({allowsEditing:true});
     }
-
     return (
-      <View style={{flexDirection: 'row', padding: 40}}>
-        <Button onPress={showCamera}>
+  <View style={{flexDirection: 'row', padding: 40}}>
+          <Button onPress={showCamera}>
           Open Camera
         </Button>
 
@@ -251,6 +250,46 @@ export default class HomeScreen extends React.Component {
         </Button>
       </View>
     );
+  }
+
+  _renderImagePicker2 = (pic_uri) => {
+
+    const imageStyle = {width: Layout.window.width, height: Layout.window.width / 2};
+
+    showCamera = async () => {
+      result = await ImagePicker.launchCameraAsync({allowsEditing:true});
+      pic_uri = result.uri
+      console.log(pic_uri)
+    }
+
+    const showPhotos = async (result) => {
+      result = await ImagePicker.launchImageLibraryAsync({allowsEditing:true});
+      pic_uri = result.uri
+    }
+
+    console.log(pic_uri)
+    return (
+      <View>
+        <Button onPress={showCamera}>
+          Open Camera
+        </Button>
+
+        <Button onPress={showPhotos}>
+          Open Photos
+        </Button>
+        <Image source={{uri: pic_uri}} style={imageStyle} resizeMode="cover" />
+      </View>
+    );
+  }
+
+
+  _renderPicTaken = (uri) => {
+      const imageStyle = {width: Layout.window.width, height: Layout.window.width / 2};
+      return(
+        <View>
+          <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={imageStyle} resizeMode="cover" />
+        </View>
+      )
   }
 
   _renderRefreshControl = () => {
@@ -359,9 +398,9 @@ export default class HomeScreen extends React.Component {
         directionalLockEnabled
         horizontal
       >
-        <Image source={require('../assets/images/example1.jpg')} style={imageStyle} resizeMode="cover" />
         <Image source={require('../assets/images/example2.jpg')} style={imageStyle} resizeMode="cover" />
         <Image source={require('../assets/images/example3.jpg')} style={imageStyle} resizeMode="cover" />
+        <Image source={require('../assets/images/example1.jpg')} style={imageStyle} resizeMode="cover" />
       </ScrollView>
     );
   }
