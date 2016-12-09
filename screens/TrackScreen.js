@@ -41,7 +41,7 @@ import Layout from '../constants/Layout';
 import Router from '../navigation/Router';
 
 import { Components } from 'exponent';
-import { List, ListItem } from 'react-native-elements';
+import { PricingCard, Card, Button, List, ListItem } from 'react-native-elements';
 
 const list = [
     {
@@ -70,7 +70,6 @@ const list = [
         subtitle: '9 days ago'
     },
 ]
-
 
 export default class HomeScreen extends React.Component {
     static route = {
@@ -104,7 +103,9 @@ export default class HomeScreen extends React.Component {
                     key={i}
                     title={l.name}
                     subtitle={l.subtitle}
-                    />
+                    rightIcon={{name: 'check'}}
+                    >
+                    </ListItem>
                 ))
             }
             </List>

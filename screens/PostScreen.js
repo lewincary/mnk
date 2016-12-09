@@ -62,6 +62,30 @@ class ExponentButton extends React.Component {
 
 }
 
+var checkboxes_states = [
+    {
+        checked: false,
+    },
+    {
+        checked: false,
+    },
+    {
+        checked: false,
+    },
+    {
+        checked: false,
+    },
+    {
+        checked: false,
+    },
+    {
+        checked: false,
+    },
+    {
+        checked: false,
+    }
+];
+
 export default class HomeScreen extends React.Component {
   static route = {
     navigationBar: {
@@ -135,11 +159,27 @@ export default class HomeScreen extends React.Component {
     );
   }
 
-  _handleCheck(is_checked){
+    _handleCheck(is_checked){
       this.setState({
         checked: !is_checked
       })
     }
+
+    _handleCheck2(index){
+      checkboxes_states[index].checked = !checkboxes_states[index].checked;
+      this.setState({
+        checked: !checkboxes_states[index].checked
+      })
+    }
+
+    state2 = {
+      isRefreshing: false,
+      dataSource: new ListView.DataSource({
+        rowHasChanged: () => false,
+        sectionHeaderHasChanged: () => false,
+      }),
+    }
+
 
   _renderCheckBoxes = () => {
 
@@ -147,52 +187,45 @@ export default class HomeScreen extends React.Component {
       <View>
       <CheckBox
         title='Milk'
-        checked={this.state.checked}
+        checked={checkboxes_states[0].checked}
         checkedColor = {Colors.tintColor}
-        //_handleCheck is the function I defined above, on line 138
-        onPress={() => this._handleCheck(this.state.checked)}
+        onPress={() => this._handleCheck2(0)}
       ></CheckBox>
-      <CheckBox>
+      <CheckBox
         title='Egg'
-        checked={this.state.checked}
+        checked={checkboxes_states[1].checked}
         checkedColor = {Colors.tintColor}
-        onPress={() => this._handleCheck(this.state.checked)}
+        onPress={() => this._handleCheck2(1)}
       ></CheckBox>
-      <CheckBox>
+      <CheckBox
         title='Meat'
-        checked={this.state.checked}
+        checked={checkboxes_states[2].checked}
         checkedColor = {Colors.tintColor}
-        onPress={() => this._handleCheck(this.state.checked)}
+        onPress={() => this._handleCheck2(2)}
       ></CheckBox>
       <CheckBox
         title='Fish'
-        checked={this.state.checked}
+        checked={checkboxes_states[3].checked}
         checkedColor = {Colors.tintColor}
-        onPress={() => this._handleCheck(this.state.checked)}
+        onPress={() => this._handleCheck2(3)}
       ></CheckBox>
-      <CheckBox>
+      <CheckBox
         title='Gluten'
-        checked={this.state.checked}
+        checked={checkboxes_states[4].checked}
         checkedColor = {Colors.tintColor}
-        onPress={() => this._handleCheck(this.state.checked)}
+        onPress={() => this._handleCheck2(4)}
       ></CheckBox>
-      <CheckBox>
+      <CheckBox
         title='Nuts'
-        checked={this.state.checked}
+        checked={checkboxes_states[5].checked}
         checkedColor = {Colors.tintColor}
-        onPress={() => this._handleCheck(this.state.checked)}
+        onPress={() => this._handleCheck2(5)}
       ></CheckBox>
-      <CheckBox>
+      <CheckBox
         title='Soy'
-        checked={this.state.checked}
+        checked={checkboxes_states[6].checked}
         checkedColor = {Colors.tintColor}
-        onPress={() => this._handleCheck(this.state.checked)}
-      ></CheckBox>
-      <CheckBox>
-        title='Other (please describe below)'
-        checked={this.state.checked}
-        checkedColor = {Colors.tintColor}
-        onPress={() => this._handleCheck(this.state.checked)}
+        onPress={() => this._handleCheck2(6)}
       ></CheckBox>
       </View>
     );
